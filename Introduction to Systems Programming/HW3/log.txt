@@ -1,0 +1,353 @@
+* commit eb59bbdee0fff0e532377eef134a61532bf207d0
+| Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| Date:   Sun Jul 28 18:21:52 2024 +0300
+| 
+|     fix bugs
+| 
+|  SortedList.h    | 6 ++----
+|  TaskManager.cpp | 4 ++--
+|  2 files changed, 4 insertions(+), 6 deletions(-)
+| 
+* commit c1c7e6f658ade42b2e9dddce5578ea66ab5ff188
+| Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| Date:   Sun Jul 28 16:44:44 2024 +0300
+| 
+|     adding clearList function
+| 
+|  .gitmodules        |  6 +++++
+|  MatamGenericTester |  1 +
+|  SortedList.h       | 67 +++++++++++++++++++++++++++++++++-------------------
+|  TechnionMatam      |  1 +
+|  4 files changed, 51 insertions(+), 24 deletions(-)
+| 
+* commit 5008d58a5556b9b7f58986b8a9b9446b5b14021e
+| Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| Date:   Sat Jul 27 17:38:49 2024 +0300
+| 
+|     nothing
+| 
+|  .gitmodules        | 3 ---
+|  MatamGenericTester | 1 -
+|  TaskManager.h      | 3 +--
+|  3 files changed, 1 insertion(+), 6 deletions(-)
+|   
+*   commit 5c7b7f80e07f269fff857e4b61f2f7416a195341
+|\  Merge: 58d38cf a581eeb
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Sat Jul 27 17:03:23 2024 +0300
+| | 
+| |     fixing conglict
+| | 
+| * commit a581eeb402d0a1aec55b65f90fb997dfc813e7a2
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Sat Jul 27 12:49:05 2024 +0300
+| | 
+| |     minor changes
+| | 
+| |  .gitmodules     | 3 ---
+| |  TaskManager.cpp | 3 +++
+| |  TechnionMatam   | 1 -
+| |  3 files changed, 3 insertions(+), 4 deletions(-)
+| | 
+| * commit ca33acb7157092d8980c5471fb7ef2caef446804
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Sat Jul 27 12:46:07 2024 +0300
+| | 
+| |     minor changes
+| | 
+| |  .gitmodules        | 6 ++++++
+| |  MatamGenericTester | 1 +
+| |  TaskManager.cpp    | 7 +++----
+| |  TaskManager.h      | 4 ++--
+| |  TechnionMatam      | 1 +
+| |  5 files changed, 13 insertions(+), 6 deletions(-)
+| |   
+| *   commit a6dc6dac26eaf6ee29cb5760f034bbe89052c46e
+| |\  Merge: ba2646f 58b0af9
+| | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | Date:   Sat Jul 27 02:23:20 2024 +0300
+| | | 
+| | |     Merge remote-tracking branch 'ourRemote/main'
+| | |   
+| * |   commit ba2646f118dc017c8beceb1cb1dc1dd1b10106be
+| |\ \  Merge: 9c992dd d1883cc
+| | | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | | Date:   Sat Jul 27 02:01:58 2024 +0300
+| | | | 
+| | | |     fixed merge conflicts
+| | | |     Merge remote-tracking branch 'ourRemote/main'
+| | | | 
+| * | | commit 9c992ddbf3e81ecc9abf9951ade03f55c9822d73
+| | | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | | Date:   Sat Jul 27 01:48:17 2024 +0300
+| | | | 
+| | | |     implemented a bit
+| | | | 
+| | | |  SortedList.h    |  2 +-
+| | | |  TaskManager.cpp | 67 ++++++++++++++++++++++++++-----------------------
+| | | |  2 files changed, 37 insertions(+), 32 deletions(-)
+| | | | 
+* | | | commit 58d38cf980ef3a696a649ea89ec1b77d5657b5ed
+| | | | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | | | Date:   Sat Jul 27 16:01:33 2024 +0300
+| | | | 
+| | | |      adding throw
+| | | | 
+| | | |  TaskManager.cpp | 79 +++++++++++++++++++++----------------------------
+| | | |  1 file changed, 33 insertions(+), 46 deletions(-)
+| | | | 
+* | | | commit c687a82640ce0f8a672b3596b238dbedb38e94d0
+| |_|/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|/| |   Date:   Sat Jul 27 03:06:55 2024 +0300
+| | |   
+| | |       improving the code
+| | |   
+| | |    TaskManager.cpp | 4 ++--
+| | |    1 file changed, 2 insertions(+), 2 deletions(-)
+| | | 
+* | | commit 58b0af937d12f2264d1e608b0189362cd69871fd
+| |/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|/|   Date:   Sat Jul 27 02:19:55 2024 +0300
+| |   
+| |       minor
+| |   
+| |    SortedList.h    | 12 +++++++-----
+| |    TaskManager.cpp |  2 +-
+| |    2 files changed, 8 insertions(+), 6 deletions(-)
+| | 
+* | commit d1883cc945b6102339c00eff23c8b8f1f37985c9
+|/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|   Date:   Sat Jul 27 01:34:30 2024 +0300
+|   
+|       bumppriority
+|   
+|    SortedList.h    |  4 ++--
+|    TaskManager.cpp | 47 ++++++++++++++++++++++++++++++++++++++++-------
+|    2 files changed, 42 insertions(+), 9 deletions(-)
+| 
+* commit 5e23d1aed5d65e86368693ccaaffcb972ee92b10
+| Author: mzangaria <mzangaria@campus.technion.ac.il>
+| Date:   Fri Jul 26 02:21:00 2024 +0300
+| 
+|     some maintaince
+| 
+|  SortedList.h | 32 +++++++++++++++++---------------
+|  1 file changed, 17 insertions(+), 15 deletions(-)
+|   
+*   commit 359e69222553f2be3265974eece82d5efce52557
+|\  Merge: 172f781 092e4e8
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Fri Jul 26 01:04:12 2024 +0300
+| | 
+| |     Merge remote-tracking branch 'refs/remotes/origin/main'
+| |   
+| *   commit 092e4e8e5078a5240964f9207f9156b5c8cc7535
+| |\  Merge: d2a1465 29447b0
+| | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | Date:   Fri Jul 26 00:47:32 2024 +0300
+| | | 
+| | |     merged Merge remote-tracking branch 'ourRemote/main'
+| | | 
+| * | commit d2a146551bda5456f8730120a12943c3c62c64f0
+| | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | Date:   Fri Jul 26 00:36:07 2024 +0300
+| | | 
+| | |     filter and apply
+| | | 
+| | |  SortedList.h | 6 ++----
+| | |  1 file changed, 2 insertions(+), 4 deletions(-)
+| | | 
+| * | commit 43184b99b6f7d9791164589261f3639d78c954f2
+| | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | Date:   Fri Jul 26 00:30:32 2024 +0300
+| | | 
+| | |     implemented apply and filter
+| | | 
+| | |  SortedList.h | 251 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+| | |  1 file changed, 251 insertions(+)
+| | | 
+| * | commit 63740327630c2ba4ed21258dbc32239e40e62602
+| | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | Date:   Thu Jul 25 18:54:49 2024 +0300
+| | | 
+| | |     idk
+| | | 
+| | |  SortedList.h | 295 -----------------------------------------------------
+| | |  1 file changed, 295 deletions(-)
+| | | 
+* | | commit 172f7811ada5f6ee7d06fe40c80b9d9589c536e6
+| |/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|/|   Date:   Fri Jul 26 01:03:23 2024 +0300
+| |   
+| |       printall tasks
+| |   
+| |    TaskManager.cpp | 5 ++++-
+| |    1 file changed, 4 insertions(+), 1 deletion(-)
+| | 
+* | commit 29447b02d5516fdaacf021f06c9be7f9124d2886
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Fri Jul 26 00:34:43 2024 +0300
+| | 
+| |     adding constiterator
+| | 
+| |  SortedList.h    | 91 ++++++++++++++++++++++++++++-------------------------
+| |  TaskManager.cpp |  9 +++---
+| |  TaskManager.h   |  1 -
+| |  3 files changed, 53 insertions(+), 48 deletions(-)
+| | 
+* | commit c10ae44faa27dc7cc94f277973085fed27c6055d
+|/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|   Date:   Thu Jul 25 18:52:57 2024 +0300
+|   
+|       life is hard
+|   
+|    SortedList.h    | 104 +++++++++-------------------------------------------
+|    TaskManager.cpp |  19 ++++++++--
+|    2 files changed, 33 insertions(+), 90 deletions(-)
+|   
+*   commit 69dfe5f731bdab6de55df12062649b73eb57b2c1
+|\  Merge: 6b7927c 7ec477a
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Tue Jul 23 23:03:06 2024 +0300
+| | 
+| |     nothing
+| | 
+| * commit 7ec477aab42420a0a6abb1f8522efa158c9ee8fb
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Tue Jul 23 17:23:11 2024 +0300
+| | 
+| |     stam
+| | 
+| |  SortedList.h | 4 ++--
+| |  1 file changed, 2 insertions(+), 2 deletions(-)
+| | 
+* | commit 6b7927cc36a10601a22f776ceee532428df51666
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Tue Jul 23 22:56:50 2024 +0300
+| | 
+| |     adding couple functions
+| | 
+| |  Person.cpp      |  2 ++
+| |  Person.h        |  1 +
+| |  SortedList.h    | 45 +++++++++++++++++++++++++++++---
+| |  TaskManager.cpp | 75 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+| |  TaskManager.h   |  9 ++++---
+| |  5 files changed, 125 insertions(+), 7 deletions(-)
+| | 
+* | commit 75714c461b847f5831b8931f78d984f83163f43e
+|\| Merge: 49cd6d5 ed07086
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Mon Jul 22 19:15:53 2024 +0300
+| | 
+| |     fixing merge
+| | 
+| * commit ed070869bc3c1b9384fa8f36e456671a691da7a2
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Mon Jul 22 19:12:45 2024 +0300
+| | 
+| |     minor changes
+| | 
+| |  SortedList.h | 2 +-
+| |  1 file changed, 1 insertion(+), 1 deletion(-)
+| | 
+| * commit a0b65c509ed8a731f90b14f43069ce16d0bab4d1
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Mon Jul 22 19:09:41 2024 +0300
+| | 
+| |     added implementation
+| | 
+| |  SortedList.h | 29 +++++++++++++++++++----------
+| |  1 file changed, 19 insertions(+), 10 deletions(-)
+| | 
+| * commit b5d3425020c1a759d1365dc0a189d8c160bf2b51
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Mon Jul 22 16:08:11 2024 +0300
+| | 
+| |     fixed const
+| | 
+| |  SortedList.h | 43 ++++++++++++++++++-------------------------
+| |  1 file changed, 18 insertions(+), 25 deletions(-)
+| | 
+* | commit 49cd6d5fc7dc42c48bcd5c044d8d469ad7cd62d9
+|\| Merge: 22b04dd 9187cb5
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Mon Jul 22 19:13:51 2024 +0300
+| | 
+| |     creating taskmanager file
+| | 
+| * commit 9187cb5055d5249447ce32c181bb6c5a686642a7
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Mon Jul 22 14:59:58 2024 +0300
+| | 
+| |     added first write
+| | 
+| |  SortedList.cpp |   0
+| |  SortedList.h   | 238 ++++++++++++++++++++++++++++++++++++++++++++++-------
+| |  2 files changed, 208 insertions(+), 30 deletions(-)
+| | 
+* | commit 22b04dd156ad55151f528790bb45ad1a110d7805
+|/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|   Date:   Mon Jul 22 15:02:12 2024 +0300
+|   
+|       nothing
+|   
+|    SortedList.h | 60 ++++++++++++++++++++++++++------------------------------
+|    1 file changed, 28 insertions(+), 32 deletions(-)
+| 
+* commit f2f6b13db6611afdab19d723bcb26d6d00cf7fc5
+| Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| Date:   Sun Jul 21 23:39:58 2024 +0300
+| 
+|     adding function declarations
+| 
+|  SortedList.h | 20 ++++++++++++++++++++
+|  1 file changed, 20 insertions(+)
+| 
+* commit 6b0f662719e8b51ce2daaf3ac42dfc96efd1e9e0
+| Author: mzangaria <mzangaria@campus.technion.ac.il>
+| Date:   Sun Jul 21 21:52:02 2024 +0300
+| 
+|     added files
+| 
+|  SortedList.cpp  | 0
+|  TaskManager.cpp | 0
+|  2 files changed, 0 insertions(+), 0 deletions(-)
+| 
+* commit b8c67f312b45dbd15b5a77514d980497c85f044c
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Mon Jul 15 20:55:03 2024 +0300
+| 
+|     Adds supplied files
+| 
+|  Person.cpp           |  51 +++++
+|  Person.h             |  79 ++++++++
+|  SortedList.h         |  57 ++++++
+|  Task.cpp             |  83 ++++++++
+|  Task.h               | 115 +++++++++++
+|  TaskManager.h        |  75 +++++++
+|  main.cpp             | 531 +++++++++++++++++++++++++++++++++++++++++++++++++
+|  tests/test1.expected |   3 +
+|  tests/test2.expected |   3 +
+|  tests/test3.expected |  30 +++
+|  tests/test4.expected |   3 +
+|  tests/test5.expected |   3 +
+|  tests/test6.expected |  15 ++
+|  13 files changed, 1048 insertions(+)
+| 
+* commit bb9ef6799d9aad8f408116d9c7d1adb42d733a18
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Mon Jul 15 20:53:59 2024 +0300
+| 
+|     Initial Commit - Adds README file
+| 
+|  README.md | 7 +++++++
+|  1 file changed, 7 insertions(+)
+| 
+* commit 4cce943638f0c25f36072fc3d9aaf5a65b809de3
+  Author: mzangaria <zangarea@gmail.com>
+  Date:   Sun Jul 21 21:13:00 2024 +0300
+  
+      Initial commit
+  
+   .gitignore | 32 ++++++++++++++++++++++++++++++++
+   1 file changed, 32 insertions(+)

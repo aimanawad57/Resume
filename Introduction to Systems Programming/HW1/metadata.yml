@@ -1,0 +1,14 @@
+---
+:id: 258632326
+:submitters:
+- :name: מוחמד זנגריה
+  :email: mzangaria@campus.technion.ac.il
+- :name: איימן עואד
+  :email: aiman.awad@campus.technion.ac.il
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2024-07-03 16:19:41.387330000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2024-07-03 09:19:41.387330000 Z
+:status: processed
+:score: 90.0

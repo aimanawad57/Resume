@@ -1,0 +1,1138 @@
+* commit 8f8f00f672f68d8d42227937eb32fe5ae943009f
+| Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| Date:   Mon Jul 8 10:12:57 2024 +0300
+| 
+|     adding screenshot of dry part output
+| 
+| diff --git a/dry/outputdrypart.png b/dry/outputdrypart.png
+| new file mode 100644
+| index 0000000..c664be9
+| Binary files /dev/null and b/dry/outputdrypart.png differ
+| 
+* commit 5ebca0a821cb9081c39aae48068fbbf842cfd1a0
+| Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| Date:   Mon Jul 8 09:50:09 2024 +0300
+| 
+|     minor changes
+| 
+| diff --git a/dry/Pirate.cpp b/dry/Pirate.cpp
+| index 32d7ecc..c002cfe 100644
+| --- a/dry/Pirate.cpp
+| +++ b/dry/Pirate.cpp
+| @@ -51,7 +51,7 @@ DEVIL_FRUIT Pirate::getDevilFruit() const{
+|      };
+|  
+|      std::ostream &operator<<(std::ostream &os, const Pirate &pirate) {
+| -        os << "name: " << pirate.name << " (Devil Fruit: " << devilFruitNames[pirate.devilFruit] << ")"
+| -        << " Bounty: " << pirate.bounty;
+| +        os << pirate.name << " (Bounty: " << pirate.bounty
+| +        << ", Devil Fruit: " << devilFruitNames[pirate.devilFruit] << ")";
+|          return os;
+|      }
+| 
+* commit d599a857808d32782a4d7068d6ff3b994cecb13a
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Mon Jul 1 06:55:20 2024 +0300
+| 
+|     Adds Devil Fruit Feature
+| 
+| diff --git a/dry/Pirate.cpp b/dry/Pirate.cpp
+| index be01825..32d7ecc 100644
+| --- a/dry/Pirate.cpp
+| +++ b/dry/Pirate.cpp
+| @@ -2,7 +2,11 @@
+|  #include "Pirate.h"
+|  
+|  
+| -Pirate::Pirate(const string& name,int bounty): name(name), bounty(bounty){}
+| +
+| +
+| +Pirate::Pirate(const string& name ,int bounty, DEVIL_FRUIT devilFruit): name(name),
+| +                                                                        bounty(bounty),devilFruit(devilFruit) {}
+| +
+|  
+|  
+|  void Pirate::setName(const string& name){
+| @@ -10,11 +14,17 @@ void Pirate::setName(const string& name){
+|  }
+|  
+|  
+| -std::string Pirate::getName(){
+| +void Pirate::setDevilFruit(DEVIL_FRUIT devilFruit){
+| +    this->devilFruit = devilFruit;
+| +}
+| +
+| +
+| +std::string Pirate::getName() const{
+|      return name;
+|  }
+|  
+|  
+| +
+|  void Pirate::setBounty(int bounty){
+|      this->bounty=bounty;
+|  
+| @@ -24,10 +34,24 @@ int Pirate::getBounty() const{
+|      return bounty;
+|  }
+|  
+| +DEVIL_FRUIT Pirate::getDevilFruit() const{
+| +    return devilFruit;
+| +}
+|  
+|  
+| -std::ostream &operator<<(std::ostream &os, const Pirate &pirate){
+| -    os << pirate.name << std::endl;
+| -    os << pirate.bounty;
+| -    return os;
+| -}
+| +
+| +    const char *const devilFruitNames[] = {
+| +            "Gum Gum",
+| +            "Smoke Smoke",
+| +            "Flame Flame",
+| +            "Rumble Rumble",
+| +            "String String",
+| +            "Ice Ice",
+| +            "None"
+| +    };
+| +
+| +    std::ostream &operator<<(std::ostream &os, const Pirate &pirate) {
+| +        os << "name: " << pirate.name << " (Devil Fruit: " << devilFruitNames[pirate.devilFruit] << ")"
+| +        << " Bounty: " << pirate.bounty;
+| +        return os;
+| +    }
+| diff --git a/dry/Pirate.h b/dry/Pirate.h
+| index 89ea680..5835a13 100644
+| --- a/dry/Pirate.h
+| +++ b/dry/Pirate.h
+| @@ -5,13 +5,25 @@
+|  
+|  using std::string;
+|  
+| +enum DEVIL_FRUIT {
+| +    GUM_GUM_FRUIT,
+| +    SMOKE_SMOKE_FRUIT,
+| +    FLAME_FLAME_FRUIT,
+| +    RUMBLE_RUMBLE_FRUIT,
+| +    STRING_STRING_FRUIT,
+| +    ICE_ICE_FRUIT,
+| +    NONE
+| +};
+| +
+|  class Pirate {
+|  private:
+|      string name;
+|      int bounty;
+|  
+|  public:
+| -    Pirate(const string& name, int bounty);
+| +    DEVIL_FRUIT devilFruit;
+| +
+| +    Pirate(const string& name,int bounty, DEVIL_FRUIT devilFruit = DEVIL_FRUIT::NONE );
+|  
+|      Pirate() = default;
+|  
+| @@ -19,7 +31,11 @@ public:
+|  
+|      void setName(const string& name);
+|  
+| -    string getName();
+| +    void setDevilFruit(DEVIL_FRUIT devilFruit);
+| +
+| +    string getName() const;
+| +
+| +    DEVIL_FRUIT getDevilFruit() const;
+|  
+|      void setBounty(int bounty);
+|  
+| diff --git a/dry/main.cpp b/dry/main.cpp
+| index 533f58a..73982da 100644
+| --- a/dry/main.cpp
+| +++ b/dry/main.cpp
+| @@ -6,16 +6,15 @@ using std::cout, std::endl;
+|  
+|  
+|  int main() {
+| -
+| -    Pirate luffy("Luffy",1000000);
+| +    Pirate luffy("Luffy",1000000,GUM_GUM_FRUIT);
+|      Pirate zoro("Zoro",500000);
+|  
+|      const int crewSize = 2;
+| -    
+| +
+|      Pirate strawHatCrew[2];
+|      strawHatCrew[0] = luffy;
+|      strawHatCrew[1] = zoro;
+| -    
+| +
+|      cout << "Straw Hat crew contains:" << endl;
+|      for (int i = 0; i < crewSize; i++) {
+|          cout << strawHatCrew[i] << endl;
+| 
+* commit c87b6cf17d81ce9c7c4b58a6584356c254742e7d
+| Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| Date:   Sat Jul 6 15:48:00 2024 +0300
+| 
+|     adding bounty feature (3.3)
+| 
+| diff --git a/dry/Pirate.cpp b/dry/Pirate.cpp
+| index c96892e..be01825 100644
+| --- a/dry/Pirate.cpp
+| +++ b/dry/Pirate.cpp
+| @@ -2,7 +2,7 @@
+|  #include "Pirate.h"
+|  
+|  
+| -Pirate::Pirate(const string& name): name(name) {}
+| +Pirate::Pirate(const string& name,int bounty): name(name), bounty(bounty){}
+|  
+|  
+|  void Pirate::setName(const string& name){
+| @@ -15,7 +15,19 @@ std::string Pirate::getName(){
+|  }
+|  
+|  
+| +void Pirate::setBounty(int bounty){
+| +    this->bounty=bounty;
+| +
+| +}
+| +
+| +int Pirate::getBounty() const{
+| +    return bounty;
+| +}
+| +
+| +
+| +
+|  std::ostream &operator<<(std::ostream &os, const Pirate &pirate){
+| -    os << pirate.name;
+| +    os << pirate.name << std::endl;
+| +    os << pirate.bounty;
+|      return os;
+|  }
+| diff --git a/dry/Pirate.h b/dry/Pirate.h
+| index 246ca61..89ea680 100644
+| --- a/dry/Pirate.h
+| +++ b/dry/Pirate.h
+| @@ -8,9 +8,11 @@ using std::string;
+|  class Pirate {
+|  private:
+|      string name;
+| +    int bounty;
+|  
+|  public:
+| -    Pirate(const string& name);
+| +    Pirate(const string& name, int bounty);
+| +
+|      Pirate() = default;
+|  
+|      ~Pirate() = default;
+| @@ -19,5 +21,9 @@ public:
+|  
+|      string getName();
+|  
+| +    void setBounty(int bounty);
+| +
+| +    int getBounty() const;
+| +
+|      friend std::ostream &operator<<(std::ostream &os, const Pirate &pirate);
+|  };
+| diff --git a/dry/main.cpp b/dry/main.cpp
+| index 6b659a1..533f58a 100644
+| --- a/dry/main.cpp
+| +++ b/dry/main.cpp
+| @@ -7,8 +7,8 @@ using std::cout, std::endl;
+|  
+|  int main() {
+|  
+| -    Pirate luffy("Luffy");
+| -    Pirate zoro("Zoro");
+| +    Pirate luffy("Luffy",1000000);
+| +    Pirate zoro("Zoro",500000);
+|  
+|      const int crewSize = 2;
+|      
+| 
+* commit 3240dccf8dadaeee1f4a89f48a72677bfd7247c6
+| Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| Date:   Sat Jul 6 13:15:20 2024 +0300
+| 
+|     adding explanation of the bug 3.2
+| 
+| diff --git a/dry/explanation bug 3.2.txt b/dry/explanation bug 3.2.txt
+| new file mode 100644
+| index 0000000..adab89f
+| --- /dev/null
+| +++ b/dry/explanation bug 3.2.txt	
+| @@ -0,0 +1 @@
+| +ניסיון באתחול מערך של פיראטים ללא ערכים , התקלה התרחשה כיוון שהוגדר בנאי שמקבל ערל (const& string name)  כאשר הוגדר בנאי מתבטל הבנאי הדיפולטיבי של קומפיילר (שלא מקבל ערכים) , לכן צריך להגדיר אותו מחדש 
+| \ No newline at end of file
+| 
+* commit 351af639be74369741e8f6de464a1eb2f1a36a9a
+| Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| Date:   Sat Jul 6 12:58:10 2024 +0300
+| 
+|     adding a defult constructor
+| 
+| diff --git a/dry/Pirate.h b/dry/Pirate.h
+| index 7769667..246ca61 100644
+| --- a/dry/Pirate.h
+| +++ b/dry/Pirate.h
+| @@ -11,6 +11,7 @@ private:
+|  
+|  public:
+|      Pirate(const string& name);
+| +    Pirate() = default;
+|  
+|      ~Pirate() = default;
+|  
+| 
+* commit 367802f02ebf2abac673727016cc90942be22561
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Fri Jul 5 13:28:31 2024 +0300
+| 
+|     [Bug Fix] Changes test to conform matrix indexing conventions
+| 
+| diff --git a/wet/test.expected b/wet/test.expected
+| index cec9191..f50f629 100644
+| --- a/wet/test.expected
+| +++ b/wet/test.expected
+| @@ -1,19 +1,19 @@
+| -|5|7|
+| -|6|8|
+| +|5|6|
+| +|7|8|
+|  
+|  Movie Name: MataMatrix
+|  Author: Adi Harif
+|  
+|  Frame 0:
+| -|1|3|
+| -|2|4|
+| +|1|2|
+| +|3|4|
+|  
+|  Frame 1:
+| -|5|7|
+| -|6|8|
+| +|5|6|
+| +|7|8|
+|  
+|  Frame 2:
+| -|1|3|
+| -|2|4|
+| +|1|2|
+| +|3|4|
+|  
+|  -----End of Movie-----
+| diff --git a/wet/tests.cpp b/wet/tests.cpp
+| index 29d3700..1096726 100644
+| --- a/wet/tests.cpp
+| +++ b/wet/tests.cpp
+| @@ -50,10 +50,10 @@ bool testMatrix(std::ostream& out) {
+|  
+|      Matrix m4 = m1 * m2;
+|      m4 *= 1;
+| -    ASSERT_TEST(m4(0,0) == 23);
+| -    ASSERT_TEST(m4(0,1) == 34);
+| -    ASSERT_TEST(m4(1,0) == 31);
+| -    ASSERT_TEST(m4(1,1) == 46);
+| +    ASSERT_TEST(m4(0,0) == 19);
+| +    ASSERT_TEST(m4(0,1) == 22);
+| +    ASSERT_TEST(m4(1,0) == 43);
+| +    ASSERT_TEST(m4(1,1) == 50);
+|  
+|      m1 += m2;
+|      m1 *= m2;
+| 
+* commit c733c25917e6ace61d45f6688b34f09da2ceb26d
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Mon Jul 1 06:33:07 2024 +0300
+| 
+|     Adds dry part supplied files
+| 
+| diff --git a/dry/Pirate.cpp b/dry/Pirate.cpp
+| new file mode 100644
+| index 0000000..c96892e
+| --- /dev/null
+| +++ b/dry/Pirate.cpp
+| @@ -0,0 +1,21 @@
+| +
+| +#include "Pirate.h"
+| +
+| +
+| +Pirate::Pirate(const string& name): name(name) {}
+| +
+| +
+| +void Pirate::setName(const string& name){
+| +    this->name = name;
+| +}
+| +
+| +
+| +std::string Pirate::getName(){
+| +    return name;
+| +}
+| +
+| +
+| +std::ostream &operator<<(std::ostream &os, const Pirate &pirate){
+| +    os << pirate.name;
+| +    return os;
+| +}
+| diff --git a/dry/Pirate.h b/dry/Pirate.h
+| new file mode 100644
+| index 0000000..7769667
+| --- /dev/null
+| +++ b/dry/Pirate.h
+| @@ -0,0 +1,22 @@
+| +
+| +#pragma once
+| +
+| +#include <iostream>
+| +
+| +using std::string;
+| +
+| +class Pirate {
+| +private:
+| +    string name;
+| +
+| +public:
+| +    Pirate(const string& name);
+| +
+| +    ~Pirate() = default;
+| +
+| +    void setName(const string& name);
+| +
+| +    string getName();
+| +
+| +    friend std::ostream &operator<<(std::ostream &os, const Pirate &pirate);
+| +};
+| diff --git a/dry/main.cpp b/dry/main.cpp
+| new file mode 100644
+| index 0000000..6b659a1
+| --- /dev/null
+| +++ b/dry/main.cpp
+| @@ -0,0 +1,25 @@
+| +#include <iostream>
+| +#include "Pirate.h"
+| +#include <cstring>
+| +
+| +using std::cout, std::endl;
+| +
+| +
+| +int main() {
+| +
+| +    Pirate luffy("Luffy");
+| +    Pirate zoro("Zoro");
+| +
+| +    const int crewSize = 2;
+| +    
+| +    Pirate strawHatCrew[2];
+| +    strawHatCrew[0] = luffy;
+| +    strawHatCrew[1] = zoro;
+| +    
+| +    cout << "Straw Hat crew contains:" << endl;
+| +    for (int i = 0; i < crewSize; i++) {
+| +        cout << strawHatCrew[i] << endl;
+| +    }
+| +
+| +    return 0;
+| +}
+| 
+* commit ef9cf034765899e10ce7aab0d0228d2f2ea3af49
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Mon Jul 1 06:32:00 2024 +0300
+| 
+|     Adds wet part supplied files
+| 
+| diff --git a/wet/Utilities.cpp b/wet/Utilities.cpp
+| new file mode 100644
+| index 0000000..6a31ec7
+| --- /dev/null
+| +++ b/wet/Utilities.cpp
+| @@ -0,0 +1,20 @@
+| +
+| +#include "Utilities.h"
+| +
+| +#include <iostream>
+| +
+| +using std::cerr;
+| +
+| +
+| +void exitWithError(MatamErrorType error) {
+| +    std::cerr << "Matam Error: ";
+| +    switch (error) {
+| +        case MatamErrorType::UnmatchedSizes:
+| +            std::cerr << "Unmatched matrices" << std::endl;
+| +            break;
+| +        case MatamErrorType::OutOfBounds:
+| +            std::cerr << "Out of bounds" << std::endl;
+| +            break;
+| +    }
+| +    exit(1);
+| +}
+| diff --git a/wet/Utilities.h b/wet/Utilities.h
+| new file mode 100644
+| index 0000000..984505a
+| --- /dev/null
+| +++ b/wet/Utilities.h
+| @@ -0,0 +1,9 @@
+| +
+| +#pragma once
+| +
+| +enum class MatamErrorType {
+| +    UnmatchedSizes,
+| +    OutOfBounds
+| +};
+| +
+| +void exitWithError(MatamErrorType error);
+| diff --git a/wet/test.expected b/wet/test.expected
+| new file mode 100644
+| index 0000000..cec9191
+| --- /dev/null
+| +++ b/wet/test.expected
+| @@ -0,0 +1,19 @@
+| +|5|7|
+| +|6|8|
+| +
+| +Movie Name: MataMatrix
+| +Author: Adi Harif
+| +
+| +Frame 0:
+| +|1|3|
+| +|2|4|
+| +
+| +Frame 1:
+| +|5|7|
+| +|6|8|
+| +
+| +Frame 2:
+| +|1|3|
+| +|2|4|
+| +
+| +-----End of Movie-----
+| diff --git a/wet/tests.cpp b/wet/tests.cpp
+| new file mode 100644
+| index 0000000..29d3700
+| --- /dev/null
+| +++ b/wet/tests.cpp
+| @@ -0,0 +1,129 @@
+| +
+| +
+| +#include <string>
+| +
+| +#include "Matrix.h"
+| +#include "MataMvidia.h"
+| +
+| +using namespace std;
+| +typedef bool (*testFunc)(void);
+| +
+| +bool testMatrix(std::ostream& out);
+| +bool testMataMvidia(std::ostream& out);
+| +
+| +
+| +#define ASSERT_TEST(expr)                                                      \
+| +do {                                                                           \
+| +    if (!(expr)) {                                                             \
+| +        std::cout << "\nAssertion failed at ";                                 \
+| +        std::cout << __FILE__ << ":" << __LINE__ << ": " << #expr << std::endl;\
+| +        exit(1);                                                               \
+| +    }                                                                          \
+| +} while (0)
+| +
+| +
+| +int main() {
+| +    testMatrix(std::cout);
+| +    testMataMvidia(std::cout);
+| +    return 0;
+| +}
+| +
+| +bool testMatrix(std::ostream& out) {
+| +    Matrix m1(2,2);
+| +    Matrix m2(2,2);
+| +
+| +    m1(0,0) = 1;
+| +    m1(0,1) = 2;
+| +    m1(1,0) = 3;
+| +    m1(1,1) = 4;
+| +
+| +    m2(0,0) = 5;
+| +    m2(0,1) = 6;
+| +    m2(1,0) = 7;
+| +    m2(1,1) = 8;
+| +
+| +    Matrix m3 = m1 + m2;
+| +    ASSERT_TEST(m3(0,0) == 6);
+| +    ASSERT_TEST(m3(0,1) == 8);
+| +    ASSERT_TEST(m3(1,0) == 10);
+| +    ASSERT_TEST(m3(1,1) == 12);
+| +
+| +    Matrix m4 = m1 * m2;
+| +    m4 *= 1;
+| +    ASSERT_TEST(m4(0,0) == 23);
+| +    ASSERT_TEST(m4(0,1) == 34);
+| +    ASSERT_TEST(m4(1,0) == 31);
+| +    ASSERT_TEST(m4(1,1) == 46);
+| +
+| +    m1 += m2;
+| +    m1 *= m2;
+| +    m1 -= m2;
+| +    m1 = m3 - m2;
+| +
+| +    ASSERT_TEST(-m1 == -1*m1);
+| +    ASSERT_TEST(-m1 == m1*-1);
+| +
+| +    ASSERT_TEST(m2.rotateClockwise().rotateCounterClockwise() == m2);
+| +
+| +    ASSERT_TEST(m1.transpose().transpose() == m1);
+| +
+| +    out << m2 << std::endl;
+| +
+| +    return true;
+| +}
+| +
+| +bool testMataMvidia(std::ostream& out) {
+| +    Matrix frame1(2,2);
+| +    Matrix frame2(2,2);
+| +
+| +    frame1(0,0) = 1;
+| +    frame1(0,1) = 2;
+| +    frame1(1,0) = 3;
+| +    frame1(1,1) = 4;
+| +
+| +    frame2(0,0) = 5;
+| +    frame2(0,1) = 6;
+| +    frame2(1,0) = 7;
+| +    frame2(1,1) = 8;
+| +
+| +    Matrix array[2];
+| +    array[0] = frame1;
+| +    array[1] = frame2;
+| +
+| +    MataMvidia movie("MataMatrix","Adi Harif",array, 2);
+| +
+| +    ASSERT_TEST(movie[0] == frame1);
+| +
+| +    movie += frame1;
+| +
+| +    ASSERT_TEST(movie[2] == frame1);
+| +
+| +    Matrix frame01(2,2);
+| +    Matrix frame11(2,2);
+| +
+| +    frame01(0,0) = 10;
+| +    frame01(0,1) = 20;
+| +    frame01(1,0) = 30;
+| +    frame01(1,1) = 40;
+| +
+| +    frame11(0,0) = 50;
+| +    frame11(0,1) = 60;
+| +    frame11(1,0) = 70;
+| +    frame11(1,1) = 80;
+| +
+| +    Matrix array1[2];
+| +    array1[0] = frame01;
+| +    array1[1] = frame11;
+| +
+| +    MataMvidia movie1("MataMatrix and the chamber of secrets","Adi Harif",array1, 2);
+| +
+| +    ASSERT_TEST(movie1[0] == frame01);
+| +
+| +    //test output
+| +    out << movie;
+| +
+| +    MataMvidia movie2 = movie + movie1;
+| +    movie += movie1;
+| +
+| +    return true;
+| +}
+| 
+* commit 3a0321dcd6e7438dda08143ad5e18e57d3a720b0
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Mon Jul 1 06:30:35 2024 +0300
+| 
+|     Initial Commit - Adds README.md
+| 
+| diff --git a/README.md b/README.md
+| new file mode 100644
+| index 0000000..29b9a75
+| --- /dev/null
+| +++ b/README.md
+| @@ -0,0 +1,7 @@
+| +# Matam Homework 2
+| +
+| +This repository contains all supplied files for the second homework assignment in the course "Introduction to Systems Programming" (234124) at the Technion.
+| +
+| +You may find the full instructions for this assignment on the [course's website](https://moodle2324.technion.ac.il/course/view.php?id=3205).
+| +
+| +Good luck and have fun!
+| 
+* commit f42339f3f2adca918ce76b271764c568e7a8f681
+  Author: mzangaria <zangarea@gmail.com>
+  Date:   Sat Jul 6 03:16:13 2024 +0300
+  
+      Initial commit
+  
+  diff --git a/.gitignore b/.gitignore
+  new file mode 100644
+  index 0000000..259148f
+  --- /dev/null
+  +++ b/.gitignore
+  @@ -0,0 +1,32 @@
+  +# Prerequisites
+  +*.d
+  +
+  +# Compiled Object files
+  +*.slo
+  +*.lo
+  +*.o
+  +*.obj
+  +
+  +# Precompiled Headers
+  +*.gch
+  +*.pch
+  +
+  +# Compiled Dynamic libraries
+  +*.so
+  +*.dylib
+  +*.dll
+  +
+  +# Fortran module files
+  +*.mod
+  +*.smod
+  +
+  +# Compiled Static libraries
+  +*.lai
+  +*.la
+  +*.a
+  +*.lib
+  +
+  +# Executables
+  +*.exe
+  +*.out
+  +*.app
+  
+* commit 568c99477019f8cd7db1c7b7f5a9efd4ae0658ff
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Mon Jul 1 06:55:20 2024 +0300
+| 
+|     Adds Devil Fruit Feature
+| 
+| diff --git a/dry/Pirate.cpp b/dry/Pirate.cpp
+| index c96892e..fc3c314 100644
+| --- a/dry/Pirate.cpp
+| +++ b/dry/Pirate.cpp
+| @@ -2,7 +2,7 @@
+|  #include "Pirate.h"
+|  
+|  
+| -Pirate::Pirate(const string& name): name(name) {}
+| +Pirate::Pirate(const string& name, DEVIL_FRUIT devilFruit): name(name), devilFruit(devilFruit) {}
+|  
+|  
+|  void Pirate::setName(const string& name){
+| @@ -10,12 +10,32 @@ void Pirate::setName(const string& name){
+|  }
+|  
+|  
+| +void Pirate::setDevilFruit(DEVIL_FRUIT devilFruit){
+| +    this->devilFruit = devilFruit;
+| +}
+| +
+| +
+|  std::string Pirate::getName(){
+|      return name;
+|  }
+|  
+|  
+| +DEVIL_FRUIT Pirate::getDevilFruit(){
+| +    return devilFruit;
+| +}
+| +
+| +
+| +const char* const devilFruitNames[] = {
+| +    "Gum Gum",
+| +    "Smoke Smoke",
+| +    "Flame Flame",
+| +    "Rumble Rumble",
+| +    "String String",
+| +    "Ice Ice",
+| +    "None"
+| +};
+| +
+|  std::ostream &operator<<(std::ostream &os, const Pirate &pirate){
+| -    os << pirate.name;
+| +    os << pirate.name << " (Devil Fruit: " << devilFruitNames[pirate.devilFruit] << ")";
+|      return os;
+|  }
+| diff --git a/dry/Pirate.h b/dry/Pirate.h
+| index 7769667..4c044b1 100644
+| --- a/dry/Pirate.h
+| +++ b/dry/Pirate.h
+| @@ -5,18 +5,31 @@
+|  
+|  using std::string;
+|  
+| +enum DEVIL_FRUIT {
+| +    GUM_GUM_FRUIT,
+| +    SMOKE_SMOKE_FRUIT,
+| +    FLAME_FLAME_FRUIT,
+| +    RUMBLE_RUMBLE_FRUIT,
+| +    STRING_STRING_FRUIT,
+| +    ICE_ICE_FRUIT,
+| +    NONE
+| +};
+| +
+|  class Pirate {
+|  private:
+|      string name;
+| +    DEVIL_FRUIT devilFruit;
+|  
+|  public:
+| -    Pirate(const string& name);
+| +    Pirate(const string& name, DEVIL_FRUIT devilFruit = DEVIL_FRUIT::NONE);
+|  
+|      ~Pirate() = default;
+|  
+|      void setName(const string& name);
+| +    void setDevilFruit(DEVIL_FRUIT devilFruit);
+|  
+|      string getName();
+| +    DEVIL_FRUIT getDevilFruit();
+|  
+|      friend std::ostream &operator<<(std::ostream &os, const Pirate &pirate);
+|  };
+| diff --git a/dry/main.cpp b/dry/main.cpp
+| index 6b659a1..2911f71 100644
+| --- a/dry/main.cpp
+| +++ b/dry/main.cpp
+| @@ -7,7 +7,7 @@ using std::cout, std::endl;
+|  
+|  int main() {
+|  
+| -    Pirate luffy("Luffy");
+| +    Pirate luffy("Luffy", GUM_GUM_FRUIT);
+|      Pirate zoro("Zoro");
+|  
+|      const int crewSize = 2;
+| 
+* commit 6a3961cca0991920b83a3e221eccfed187c75d2f
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Mon Jul 1 06:33:07 2024 +0300
+| 
+|     Adds dry part supplied files
+| 
+| diff --git a/dry/Pirate.cpp b/dry/Pirate.cpp
+| new file mode 100644
+| index 0000000..c96892e
+| --- /dev/null
+| +++ b/dry/Pirate.cpp
+| @@ -0,0 +1,21 @@
+| +
+| +#include "Pirate.h"
+| +
+| +
+| +Pirate::Pirate(const string& name): name(name) {}
+| +
+| +
+| +void Pirate::setName(const string& name){
+| +    this->name = name;
+| +}
+| +
+| +
+| +std::string Pirate::getName(){
+| +    return name;
+| +}
+| +
+| +
+| +std::ostream &operator<<(std::ostream &os, const Pirate &pirate){
+| +    os << pirate.name;
+| +    return os;
+| +}
+| diff --git a/dry/Pirate.h b/dry/Pirate.h
+| new file mode 100644
+| index 0000000..7769667
+| --- /dev/null
+| +++ b/dry/Pirate.h
+| @@ -0,0 +1,22 @@
+| +
+| +#pragma once
+| +
+| +#include <iostream>
+| +
+| +using std::string;
+| +
+| +class Pirate {
+| +private:
+| +    string name;
+| +
+| +public:
+| +    Pirate(const string& name);
+| +
+| +    ~Pirate() = default;
+| +
+| +    void setName(const string& name);
+| +
+| +    string getName();
+| +
+| +    friend std::ostream &operator<<(std::ostream &os, const Pirate &pirate);
+| +};
+| diff --git a/dry/main.cpp b/dry/main.cpp
+| new file mode 100644
+| index 0000000..6b659a1
+| --- /dev/null
+| +++ b/dry/main.cpp
+| @@ -0,0 +1,25 @@
+| +#include <iostream>
+| +#include "Pirate.h"
+| +#include <cstring>
+| +
+| +using std::cout, std::endl;
+| +
+| +
+| +int main() {
+| +
+| +    Pirate luffy("Luffy");
+| +    Pirate zoro("Zoro");
+| +
+| +    const int crewSize = 2;
+| +    
+| +    Pirate strawHatCrew[2];
+| +    strawHatCrew[0] = luffy;
+| +    strawHatCrew[1] = zoro;
+| +    
+| +    cout << "Straw Hat crew contains:" << endl;
+| +    for (int i = 0; i < crewSize; i++) {
+| +        cout << strawHatCrew[i] << endl;
+| +    }
+| +
+| +    return 0;
+| +}
+| 
+* commit 4c85f22824d4e2b99a1bf5c9a25a2a8bf5438e00
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Mon Jul 1 06:32:00 2024 +0300
+| 
+|     Adds wet part supplied files
+| 
+| diff --git a/wet/Utilities.cpp b/wet/Utilities.cpp
+| new file mode 100644
+| index 0000000..6a31ec7
+| --- /dev/null
+| +++ b/wet/Utilities.cpp
+| @@ -0,0 +1,20 @@
+| +
+| +#include "Utilities.h"
+| +
+| +#include <iostream>
+| +
+| +using std::cerr;
+| +
+| +
+| +void exitWithError(MatamErrorType error) {
+| +    std::cerr << "Matam Error: ";
+| +    switch (error) {
+| +        case MatamErrorType::UnmatchedSizes:
+| +            std::cerr << "Unmatched matrices" << std::endl;
+| +            break;
+| +        case MatamErrorType::OutOfBounds:
+| +            std::cerr << "Out of bounds" << std::endl;
+| +            break;
+| +    }
+| +    exit(1);
+| +}
+| diff --git a/wet/Utilities.h b/wet/Utilities.h
+| new file mode 100644
+| index 0000000..984505a
+| --- /dev/null
+| +++ b/wet/Utilities.h
+| @@ -0,0 +1,9 @@
+| +
+| +#pragma once
+| +
+| +enum class MatamErrorType {
+| +    UnmatchedSizes,
+| +    OutOfBounds
+| +};
+| +
+| +void exitWithError(MatamErrorType error);
+| diff --git a/wet/test.expected b/wet/test.expected
+| new file mode 100644
+| index 0000000..cec9191
+| --- /dev/null
+| +++ b/wet/test.expected
+| @@ -0,0 +1,19 @@
+| +|5|7|
+| +|6|8|
+| +
+| +Movie Name: MataMatrix
+| +Author: Adi Harif
+| +
+| +Frame 0:
+| +|1|3|
+| +|2|4|
+| +
+| +Frame 1:
+| +|5|7|
+| +|6|8|
+| +
+| +Frame 2:
+| +|1|3|
+| +|2|4|
+| +
+| +-----End of Movie-----
+| diff --git a/wet/tests.cpp b/wet/tests.cpp
+| new file mode 100644
+| index 0000000..29d3700
+| --- /dev/null
+| +++ b/wet/tests.cpp
+| @@ -0,0 +1,129 @@
+| +
+| +
+| +#include <string>
+| +
+| +#include "Matrix.h"
+| +#include "MataMvidia.h"
+| +
+| +using namespace std;
+| +typedef bool (*testFunc)(void);
+| +
+| +bool testMatrix(std::ostream& out);
+| +bool testMataMvidia(std::ostream& out);
+| +
+| +
+| +#define ASSERT_TEST(expr)                                                      \
+| +do {                                                                           \
+| +    if (!(expr)) {                                                             \
+| +        std::cout << "\nAssertion failed at ";                                 \
+| +        std::cout << __FILE__ << ":" << __LINE__ << ": " << #expr << std::endl;\
+| +        exit(1);                                                               \
+| +    }                                                                          \
+| +} while (0)
+| +
+| +
+| +int main() {
+| +    testMatrix(std::cout);
+| +    testMataMvidia(std::cout);
+| +    return 0;
+| +}
+| +
+| +bool testMatrix(std::ostream& out) {
+| +    Matrix m1(2,2);
+| +    Matrix m2(2,2);
+| +
+| +    m1(0,0) = 1;
+| +    m1(0,1) = 2;
+| +    m1(1,0) = 3;
+| +    m1(1,1) = 4;
+| +
+| +    m2(0,0) = 5;
+| +    m2(0,1) = 6;
+| +    m2(1,0) = 7;
+| +    m2(1,1) = 8;
+| +
+| +    Matrix m3 = m1 + m2;
+| +    ASSERT_TEST(m3(0,0) == 6);
+| +    ASSERT_TEST(m3(0,1) == 8);
+| +    ASSERT_TEST(m3(1,0) == 10);
+| +    ASSERT_TEST(m3(1,1) == 12);
+| +
+| +    Matrix m4 = m1 * m2;
+| +    m4 *= 1;
+| +    ASSERT_TEST(m4(0,0) == 23);
+| +    ASSERT_TEST(m4(0,1) == 34);
+| +    ASSERT_TEST(m4(1,0) == 31);
+| +    ASSERT_TEST(m4(1,1) == 46);
+| +
+| +    m1 += m2;
+| +    m1 *= m2;
+| +    m1 -= m2;
+| +    m1 = m3 - m2;
+| +
+| +    ASSERT_TEST(-m1 == -1*m1);
+| +    ASSERT_TEST(-m1 == m1*-1);
+| +
+| +    ASSERT_TEST(m2.rotateClockwise().rotateCounterClockwise() == m2);
+| +
+| +    ASSERT_TEST(m1.transpose().transpose() == m1);
+| +
+| +    out << m2 << std::endl;
+| +
+| +    return true;
+| +}
+| +
+| +bool testMataMvidia(std::ostream& out) {
+| +    Matrix frame1(2,2);
+| +    Matrix frame2(2,2);
+| +
+| +    frame1(0,0) = 1;
+| +    frame1(0,1) = 2;
+| +    frame1(1,0) = 3;
+| +    frame1(1,1) = 4;
+| +
+| +    frame2(0,0) = 5;
+| +    frame2(0,1) = 6;
+| +    frame2(1,0) = 7;
+| +    frame2(1,1) = 8;
+| +
+| +    Matrix array[2];
+| +    array[0] = frame1;
+| +    array[1] = frame2;
+| +
+| +    MataMvidia movie("MataMatrix","Adi Harif",array, 2);
+| +
+| +    ASSERT_TEST(movie[0] == frame1);
+| +
+| +    movie += frame1;
+| +
+| +    ASSERT_TEST(movie[2] == frame1);
+| +
+| +    Matrix frame01(2,2);
+| +    Matrix frame11(2,2);
+| +
+| +    frame01(0,0) = 10;
+| +    frame01(0,1) = 20;
+| +    frame01(1,0) = 30;
+| +    frame01(1,1) = 40;
+| +
+| +    frame11(0,0) = 50;
+| +    frame11(0,1) = 60;
+| +    frame11(1,0) = 70;
+| +    frame11(1,1) = 80;
+| +
+| +    Matrix array1[2];
+| +    array1[0] = frame01;
+| +    array1[1] = frame11;
+| +
+| +    MataMvidia movie1("MataMatrix and the chamber of secrets","Adi Harif",array1, 2);
+| +
+| +    ASSERT_TEST(movie1[0] == frame01);
+| +
+| +    //test output
+| +    out << movie;
+| +
+| +    MataMvidia movie2 = movie + movie1;
+| +    movie += movie1;
+| +
+| +    return true;
+| +}
+| 
+* commit baae84e2cdd2960caa8258a8a7fb56f86253114b
+  Author: AdiHarif <adi.harif@campus.technion.ac.il>
+  Date:   Mon Jul 1 06:30:35 2024 +0300
+  
+      Initial Commit - Adds README.md
+  
+  diff --git a/README.md b/README.md
+  new file mode 100644
+  index 0000000..29b9a75
+  --- /dev/null
+  +++ b/README.md
+  @@ -0,0 +1,7 @@
+  +# Matam Homework 2
+  +
+  +This repository contains all supplied files for the second homework assignment in the course "Introduction to Systems Programming" (234124) at the Technion.
+  +
+  +You may find the full instructions for this assignment on the [course's website](https://moodle2324.technion.ac.il/course/view.php?id=3205).
+  +
+  +Good luck and have fun!

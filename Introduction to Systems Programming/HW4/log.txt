@@ -1,0 +1,719 @@
+* commit de0ce82452e85cc9a526810ba4c9306bfbd7c089
+| Author: mzangaria <mzangaria@campus.technion.ac.il>
+| Date:   Sun Aug 18 21:38:39 2024 +0300
+| 
+|     added dry.pdf file
+| 
+|  dry.pdf | Bin 0 -> 196225 bytes
+|  1 file changed, 0 insertions(+), 0 deletions(-)
+|   
+*   commit e315d8faaa9526fac6e382414e127edd79e6b52a
+|\  Merge: 49476fb df6003b
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Sun Aug 18 20:23:58 2024 +0300
+| | 
+| |     merged
+| | 
+| * commit df6003b62228ca35c822cefb930fdede6e71de4b
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Sun Aug 18 20:08:49 2024 +0300
+| | 
+| |     moved EventItr into contructor
+| | 
+| |  MatamStory.cpp | 5 +----
+| |  MatamStory.h   | 1 -
+| |  2 files changed, 1 insertion(+), 5 deletions(-)
+| | 
+| * commit b8a39468e30091d70335acb9ef25a6f25616aa2c
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Sun Aug 18 19:56:56 2024 +0300
+| | 
+| |     replaced numbers in Job with Default consts
+| | 
+| |  Players/Job.cpp    | 25 +++++++++++++++++++++----
+| |  Players/Job.h      |  2 +-
+| |  Players/Player.cpp |  2 +-
+| |  Players/Player.h   |  2 +-
+| |  4 files changed, 24 insertions(+), 7 deletions(-)
+| | 
+| * commit 8c0766636a6c54a1dccbdecf588c24cadd0f9d6f
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Sun Aug 18 18:10:15 2024 +0300
+| | 
+| |     added battle function to Player
+| | 
+| |  Events/Event.cpp   | 27 +--------------------------
+| |  Events/Event.h     |  1 -
+| |  Players/Job.cpp    | 34 ++++++++++++++++++++++++++++++++--
+| |  Players/Job.h      |  3 +++
+| |  Players/Player.cpp |  5 ++++-
+| |  Players/Player.h   |  3 +++
+| |  6 files changed, 43 insertions(+), 30 deletions(-)
+| | 
+| * commit 89a862fd9960c2a7bff370447ad45cf58b0a706a
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Sun Aug 18 16:25:27 2024 +0300
+| | 
+| |     added initializeFields for initializePlayer
+| | 
+| |  Players/Job.cpp | 1 +
+| |  Players/Job.h   | 1 -
+| |  2 files changed, 1 insertion(+), 1 deletion(-)
+| | 
+| * commit caf39e6d79b551e215ed07ccebb98e2ef99b6e01
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Sun Aug 18 16:23:40 2024 +0300
+| | 
+| |     fixed combatPower to Player
+| | 
+| |  Events/Event.cpp                          |  2 +-
+| |  Events/Event.h                            |  1 -
+| |  objectFactory.h => Events/objectFactory.h | 12 ++++-
+| |  MatamStory.cpp                            | 67 +++++++++++----------------
+| |  MatamStory.h                              |  4 --
+| |  Players/Job.cpp                           | 54 +++++++--------------
+| |  Players/Job.h                             | 14 ++----
+| |  Players/Player.cpp                        |  8 +++-
+| |  Players/Player.h                          |  3 ++
+| |  9 files changed, 67 insertions(+), 98 deletions(-)
+| | 
+* | commit 49476fb25de966eadde1c7def2511ab0e7aa1562
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Sun Aug 18 20:13:44 2024 +0300
+| | 
+| |     add getIsmagician
+| | 
+| |  Events/Event.cpp   | 20 ++++++++++++--------
+| |  Events/Event.h     | 10 ++++------
+| |  MatamStory.cpp     |  3 +--
+| |  Players/Job.cpp    | 20 ++++++++++++++------
+| |  Players/Job.h      |  4 +++-
+| |  Players/Player.cpp | 10 ++++++++--
+| |  Players/Player.h   |  8 ++++++++
+| |  7 files changed, 50 insertions(+), 25 deletions(-)
+| | 
+* | commit 12279441308301bd0e1b6741da57771323bc237f
+|\| Merge: 15d05a5 e55bc2f
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Sun Aug 18 11:08:12 2024 +0300
+| | 
+| |     fix commit
+| | 
+| * commit e55bc2f481f3a85a2055c900a61fc5cb6b3f43ec
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Sun Aug 18 00:02:47 2024 +0300
+| | 
+| |     fixed RareEvent in pack and balrog in pack
+| | 
+| |  Events/Event.cpp   | 32 +++++++++++++++++++++++---------
+| |  Events/Event.h     |  4 ++--
+| |  MatamStory.cpp     |  6 +++++-
+| |  Players/Player.cpp |  8 ++++++--
+| |  Players/Player.h   |  2 +-
+| |  5 files changed, 37 insertions(+), 15 deletions(-)
+| | 
+* | commit 15d05a57b1f2680383533b61fcc46c51a46a7797
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Sun Aug 18 10:23:26 2024 +0300
+| | 
+| |     fix line
+| | 
+| |  MatamStory.cpp  | 3 ++-
+| |  Players/Job.cpp | 1 +
+| |  2 files changed, 3 insertions(+), 1 deletion(-)
+| | 
+* | commit dae6ac4143924fe733dbfddf34cdb8f5e7381248
+|\| Merge: cb9e819 ac14556
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Sat Aug 17 23:16:27 2024 +0300
+| | 
+| |     Merge remote-tracking branch 'ourRemote/main'
+| | 
+| * commit ac145564412fe234c3152543d729bff888bae730
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Sat Aug 17 22:41:46 2024 +0300
+| | 
+| |     fixed not updating combatPower after event
+| | 
+| |  .gitmodules        |  3 +++
+| |  Events/Event.cpp   | 11 ++++++-----
+| |  Players/Job.cpp    |  9 ++++++++-
+| |  Players/Job.h      |  2 ++
+| |  Players/Player.cpp |  5 ++++-
+| |  Players/Player.h   |  1 +
+| |  TechnionMatam      |  1 +
+| |  7 files changed, 25 insertions(+), 7 deletions(-)
+| |   
+| *   commit 7d3b606ffd697b0faec74083e0a43d9fdb188f66
+| |\  Merge: 10e3a91 5ad24e9
+| | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | Date:   Sat Aug 17 22:11:06 2024 +0300
+| | | 
+| | |     merged
+| | | 
+| * | commit 10e3a916f35c5795df17348dba59a82ccf233397
+| | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | Date:   Sat Aug 17 22:02:49 2024 +0300
+| | | 
+| | |     added checking events size
+| | | 
+| | |  .gitmodules        |  6 ++++++
+| | |  MatamGenericTester |  1 +
+| | |  MatamStory.cpp     | 11 ++++++++---
+| | |  TechnionMatam      |  1 +
+| | |  4 files changed, 16 insertions(+), 3 deletions(-)
+| | | 
+| * | commit 18c1f95bb8c2386f124ce4c3e688b3a0c5e3698b
+| | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | Date:   Fri Aug 16 17:16:07 2024 +0300
+| | | 
+| | |     remove unnecessary things
+| | | 
+| | |  Events/Event.cpp   | 16 +++++++---------
+| | |  Events/Event.h     |  5 +----
+| | |  Players/Player.cpp | 14 +++++++-------
+| | |  Players/Player.h   |  3 +--
+| | |  objectFactory.h    | 36 ++----------------------------------
+| | |  5 files changed, 18 insertions(+), 56 deletions(-)
+| | | 
+* | | commit cb9e819eaea3fcd334390bff484c217e011dbc48
+| |/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|/|   Date:   Sat Aug 17 23:16:17 2024 +0300
+| |   
+| |       formating lines
+| |   
+| |    Events/Event.cpp | 19 +++++++++++--------
+| |    Events/Event.h   |  1 -
+| |    2 files changed, 11 insertions(+), 9 deletions(-)
+| | 
+* | commit 5ad24e953b9d3d61a155eb8b428eaaa410672496
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Sat Aug 17 20:01:46 2024 +0300
+| | 
+| |     add makemove for pack
+| | 
+| |  Events/Event.cpp | 16 ++++++++++++++++
+| |  Events/Event.h   |  6 ++++++
+| |  2 files changed, 22 insertions(+)
+| | 
+* | commit 6c835ad7536e6594913abed994a82c99bdb94eb9
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Sat Aug 17 18:02:19 2024 +0300
+| | 
+| |     fix comparePlayer function
+| | 
+| |  MatamStory.cpp     | 4 ++--
+| |  Players/Player.cpp | 3 ++-
+| |  2 files changed, 4 insertions(+), 3 deletions(-)
+| | 
+* | commit 32e0bb40a280474235b3059085e13f62dd9d7868
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Sat Aug 17 17:24:22 2024 +0300
+| | 
+| |     fix insulizations of players and events
+| | 
+| |  MatamStory.cpp | 40 ++++++++++++++++++++++++++++------------
+| |  MatamStory.h   |  4 ----
+| |  2 files changed, 28 insertions(+), 16 deletions(-)
+| | 
+* | commit dc9b598bc5c4995d035a8bb88df1ff5a2ef70a85
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Fri Aug 16 16:33:08 2024 +0300
+| | 
+| |     minor
+| | 
+| |  MatamStory.cpp | 9 ++++++++-
+| |  MatamStory.h   | 6 ++++++
+| |  2 files changed, 14 insertions(+), 1 deletion(-)
+| | 
+* | commit 7a2707deb214833e8d7963ac1a61746b9ea004ae
+|\| Merge: b3ef771 fa5df98
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Fri Aug 16 15:55:53 2024 +0300
+| | 
+| |     fix merge
+| | 
+| * commit fa5df98d510969601c0c8a01e147422c3ebeca0a
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Fri Aug 16 15:32:49 2024 +0300
+| | 
+| |     fixed Balrog make_move
+| | 
+| |  Events/Event.cpp |  8 +++-----
+| |  Events/Event.h   | 11 +++++------
+| |  MatamStory.cpp   | 13 +++++++++----
+| |  3 files changed, 17 insertions(+), 15 deletions(-)
+| | 
+* | commit b3ef7711cdb7025eef1c6493f8d5543c4b87f03b
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Fri Aug 16 15:41:59 2024 +0300
+| | 
+| |     playround fix
+| | 
+| |  Events/Event.cpp |  8 +++-----
+| |  Events/Event.h   |  9 ++++-----
+| |  MatamStory.cpp   | 13 +++++++++----
+| |  3 files changed, 16 insertions(+), 14 deletions(-)
+| | 
+* | commit e14ad356d611d77017d450edf7d444f15834f65d
+|\| Merge: 466159f d1e3f69
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Fri Aug 16 01:48:48 2024 +0300
+| | 
+| |     fix merge
+| | 
+| * commit d1e3f69e92b9c4ec125e303845bcc46f46a76147
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Fri Aug 16 00:40:20 2024 +0300
+| | 
+| |     fixed hp going under 0
+| | 
+| |  Events/Event.cpp | 2 +-
+| |  1 file changed, 1 insertion(+), 1 deletion(-)
+| | 
+| * commit c27c6a835d01da925dd4d9049ceaa297317ad854
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Fri Aug 16 00:38:58 2024 +0300
+| | 
+| |     fixed to_string errors
+| | 
+| |  Events/Event.cpp | 29 +++++++++++++++++++----------
+| |  Events/Event.h   |  4 ++--
+| |  MatamStory.cpp   | 35 ++++++++++-------------------------
+| |  MatamStory.h     |  7 ++++---
+| |  4 files changed, 35 insertions(+), 40 deletions(-)
+| | 
+| * commit e1ba627a450021c79d4291ca540538a21d7c8498
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Thu Aug 15 17:23:17 2024 +0300
+| | 
+| |     fixed health <=
+| | 
+| |  Events/Event.cpp |  2 +-
+| |  MatamStory.cpp   | 34 +++++++++++++++++++---------------
+| |  2 files changed, 20 insertions(+), 16 deletions(-)
+| | 
+* | commit 466159f5539b8875c51e32ff8ed624a25a267eb8
+|/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|   Date:   Thu Aug 15 23:41:57 2024 +0300
+|   
+|       fix leaderboard
+|   
+|    Events/Event.cpp | 16 +++++++++++-----
+|    MatamStory.cpp   | 18 ++++++++----------
+|    2 files changed, 19 insertions(+), 15 deletions(-)
+| 
+* commit b2d3867c9b2708353de1b24f7f82badef4ac68e4
+| Author: mzangaria <mzangaria@campus.technion.ac.il>
+| Date:   Thu Aug 15 15:07:47 2024 +0300
+| 
+|     fixed initiazling Events and Players
+| 
+|  Events/Event.cpp   | 19 +++++++++----------
+|  Events/Event.h     |  4 ++--
+|  MatamStory.cpp     | 26 ++++++++++++++++----------
+|  Players/Player.cpp |  2 +-
+|  4 files changed, 28 insertions(+), 23 deletions(-)
+| 
+* commit 9a7f6605cfb794d34a0fed136fa582c7d72157e9
+| Author: mzangaria <mzangaria@campus.technion.ac.il>
+| Date:   Thu Aug 15 11:03:18 2024 +0300
+| 
+|     merged
+| 
+|  MatamStory.h | 6 ++++--
+|  main.cpp     | 7 ++++---
+|  2 files changed, 8 insertions(+), 5 deletions(-)
+|   
+*   commit eb87f38c61362a3509d823847b732dfd6a34a9d4
+|\  Merge: c137429 6158796
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Thu Aug 15 11:00:10 2024 +0300
+| | 
+| |     fix merge
+| | 
+| * commit 6158796b67af8d8f02603108b17e50e5bdf87578
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Thu Aug 15 10:54:03 2024 +0300
+| | 
+| |     fixed Factory create function
+| | 
+| |  MatamStory.cpp |  5 ++++-
+| |  MatamStory.h   |  4 ++++
+| |  main.cpp       | 40 ++++++++++++++++++++++++++++++++++++++++
+| |  3 files changed, 48 insertions(+), 1 deletion(-)
+| | 
+| * commit 13fe13cc7b441656ae349040dc7f5eb3338b6924
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Thu Aug 15 09:40:29 2024 +0300
+| | 
+| |     supported moving files to createPack
+| | 
+| |  MatamStory.cpp  | 24 +++++++++++-------------
+| |  objectFactory.h | 32 +++++++++++++++++++++++---------
+| |  2 files changed, 34 insertions(+), 22 deletions(-)
+| | 
+| * commit 14a2b03dec83296d6a5b9ff168bd1aa6ecf4aaa3
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Thu Aug 15 09:40:01 2024 +0300
+| | 
+| |     fixed taking input as lines
+| | 
+| |  MatamStory.cpp  | 14 +++++---------
+| |  objectFactory.h |  8 +++++++-
+| |  2 files changed, 12 insertions(+), 10 deletions(-)
+| | 
+* | commit c1374290630a54940e9a33407976b9cd0257413b
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Thu Aug 15 10:55:55 2024 +0300
+| | 
+| |     nothing here
+| | 
+| |  MatamStory.cpp | 3 ++-
+| |  1 file changed, 2 insertions(+), 1 deletion(-)
+| | 
+* | commit e92302c2e6f2f55e30004e52d53a44b67b362a93
+|\| Merge: a5c8e14 54fdbdc
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Wed Aug 14 17:19:44 2024 +0300
+| | 
+| |     fix merge
+| | 
+| * commit 54fdbdc660263f14c24cef2653c75131c6d7d0d5
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Tue Aug 13 15:27:44 2024 +0300
+| | 
+| |     implemented Factories and registration
+| | 
+| |  Events/Event.cpp   |  18 ++++---
+| |  Events/Event.h     |   6 ++-
+| |  MatamStory.cpp     | 136 +++++++++++++++++++++++++++++++++++++++++++++----
+| |  MatamStory.h       |  23 ++++++++-
+| |  Players/Job.cpp    |   8 +--
+| |  Players/Job.h      |  12 ++---
+| |  Players/Player.cpp |   9 ++--
+| |  Players/Player.h   |   8 +--
+| |  objectFactory.h    |  67 ++++++++++++++++++++++++
+| |  9 files changed, 251 insertions(+), 36 deletions(-)
+| | 
+* | commit a5c8e1482fa35cbd492c13b3e4219b793c39c813
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Wed Aug 14 17:02:56 2024 +0300
+| | 
+| |     playround and play functions
+| | 
+| |  Events/Event.cpp | 43 +++++++++++++++++++++++++---------
+| |  MatamStory.cpp   | 66 ++++++++++++++++++++++++++++++----------------------
+| |  MatamStory.h     |  3 +++
+| |  Utilities.cpp    |  3 ++-
+| |  4 files changed, 75 insertions(+), 40 deletions(-)
+| | 
+* | commit 898556a24e0b2f6a4be37e81b6c61d4358259474
+|\| Merge: ef40884 0515160
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Mon Aug 12 14:34:23 2024 +0300
+| | 
+| |     fix conflict
+| | 
+| * commit 0515160398ad282c82ccaf5499d4a1d3413e0e12
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Mon Aug 12 14:29:54 2024 +0300
+| | 
+| |     applied small test on inheritence
+| | 
+| |  Events/Event.cpp | 5 +++--
+| |  1 file changed, 3 insertions(+), 2 deletions(-)
+| |   
+| *   commit 9acde03b9f63bf0c1ffbafdaff20d16d7a43bb71
+| |\  Merge: 483182d b59db83
+| | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | Date:   Mon Aug 12 12:34:30 2024 +0300
+| | | 
+| | |     completed merge
+| | | 
+| * | commit 483182dfb3a5bd15c75f9a9338c2cb46e33a2639
+| | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | Date:   Mon Aug 12 12:29:31 2024 +0300
+| | | 
+| | |     changed description
+| | | 
+| | |  Events/Event.cpp   | 17 +++++++++--------
+| | |  Events/Event.h     | 23 +++++++++++------------
+| | |  Players/Job.cpp    |  8 ++++++--
+| | |  Players/Player.cpp |  2 +-
+| | |  Players/Player.h   |  2 +-
+| | |  Utilities.cpp      | 36 +++++++++++++++++++-----------------
+| | |  Utilities.h        | 18 ++++++++++--------
+| | |  main.cpp           | 40 ----------------------------------------
+| | |  8 files changed, 57 insertions(+), 89 deletions(-)
+| | | 
+* | | commit ef4088465a924edd16bcd6806f393e257f68ae33
+| | | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | | Date:   Mon Aug 12 14:32:09 2024 +0300
+| | | 
+| | |     nothing
+| | | 
+| | |  Utilities.cpp | 29 +++++++++++++++--------------
+| | |  1 file changed, 15 insertions(+), 14 deletions(-)
+| | | 
+* | | commit ae49d6d0c1723c55cab5a7562b9296c973cbe9f3
+| |/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|/|   Date:   Mon Aug 12 14:31:17 2024 +0300
+| |   
+| |       playturn
+| |   
+| |    MatamStory.cpp | 19 +++++++++++++++----
+| |    1 file changed, 15 insertions(+), 4 deletions(-)
+| | 
+* | commit b59db834d070eea3e8a2b9a6028eb6cd44abf208
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Mon Aug 12 12:18:14 2024 +0300
+| | 
+| |     fix
+| | 
+| |  Events/Event.cpp |  1 +
+| |  Events/Event.h   | 18 +++++++++---------
+| |  MatamStory.cpp   |  4 ++--
+| |  3 files changed, 12 insertions(+), 11 deletions(-)
+| | 
+* | commit 93553f1b3bb350589c57f9cb52d6be4c81f7f708
+|\| Merge: 68f1308 a80e3db
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Mon Aug 12 11:51:43 2024 +0300
+| | 
+| |     fix conflict
+| | 
+| * commit a80e3db11755688e54cb705ed51e88f69367077d
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Sat Aug 10 17:12:32 2024 +0300
+| | 
+| |     first implemented isGameOver
+| | 
+| |  MatamStory.cpp | 20 ++++++++++++++++----
+| |  MatamStory.h   | 27 ++++++++++++++++++---------
+| |  2 files changed, 34 insertions(+), 13 deletions(-)
+| | 
+| * commit 9b513902075aeea77fae2f3f0377ec000c45daaa
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Thu Aug 8 00:35:49 2024 +0300
+| | 
+| |     first implement on LeaderBoard
+| | 
+| |  MatamStory.cpp     | 22 ++++++++++++++++++++--
+| |  MatamStory.h       |  6 ++++--
+| |  Players/Player.cpp | 25 ++++++++++++++++++++++---
+| |  Players/Player.h   |  6 ++++++
+| |  4 files changed, 52 insertions(+), 7 deletions(-)
+| |   
+| *   commit bdab2c567c3ca3534cd7d22ff7530ad0aed82073
+| |\  Merge: bab4b37 f1abd96
+| | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | Date:   Wed Aug 7 23:27:43 2024 +0300
+| | | 
+| | |     merged
+| | | 
+| * | commit bab4b372fdaf1745bdc1c85bfa2baf6f2ce597a7
+| | | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | | Date:   Wed Aug 7 23:15:17 2024 +0300
+| | | 
+| | |     minor fixes
+| | | 
+| | |  Events/Event.cpp | 56 ++++++++++++++++++++++++++++++++++++++++++--------
+| | |  Events/Event.h   | 31 +++++++++++++++++++++-------
+| | |  MatamStory.h     | 17 ++++++++++++---
+| | |  3 files changed, 85 insertions(+), 19 deletions(-)
+| | | 
+* | | commit 68f13082aa013ccd736efb4950da2f721e76742c
+| | | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | | Date:   Mon Aug 12 11:12:56 2024 +0300
+| | | 
+| | |     formating lines
+| | | 
+| | |  Events/Event.cpp | 43 +++++++++++++++++++++++--------------------
+| | |  Events/Event.h   |  2 +-
+| | |  MatamStory.cpp   |  4 ++--
+| | |  MatamStory.h     |  6 +++---
+| | |  4 files changed, 29 insertions(+), 26 deletions(-)
+| | | 
+* | | commit 72c0bf87712f1c873b488896c659b825363852de
+| |/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|/|   Date:   Mon Aug 12 11:09:53 2024 +0300
+| |   
+| |       add pack event
+| |   
+| |    Events/Event.cpp | 25 ++++++++++++++++++++++++-
+| |    Events/Event.h   |  6 ++++--
+| |    2 files changed, 28 insertions(+), 3 deletions(-)
+| | 
+* | commit f1abd961d904af404f39da524254fe984bab4aca
+|/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|   Date:   Wed Aug 7 19:37:50 2024 +0300
+|   
+|       add Pothionmerchant make move
+|   
+|    Events/Event.cpp   | 33 ++++++++++++++++++++++++++++-----
+|    Events/Event.h     |  7 ++++---
+|    Players/Job.cpp    | 38 +++++++++++++++++++++++++++++++++++---
+|    Players/Job.h      |  9 +++++++--
+|    Players/Player.cpp |  9 +++++++--
+|    Players/Player.h   |  2 ++
+|    6 files changed, 83 insertions(+), 15 deletions(-)
+|   
+*   commit 1ca5a96702315abfef3e742a9647b524fb24fcf2
+|\  Merge: 3e4a21d 85a82e1
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Wed Aug 7 15:00:38 2024 +0300
+| | 
+| |     Merge remote-tracking branch 'ourRemote/main'
+| | 
+| * commit 85a82e11747ad6f0c170a02565538f161903ba4e
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Wed Aug 7 14:59:48 2024 +0300
+| | 
+| |     merged events files
+| | 
+| |  Events/Event.cpp | 45 +++++++++++++++++++++++++++++++++
+| |  Events/Event.h   | 70 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+| |  2 files changed, 115 insertions(+)
+| | 
+* | commit 3e4a21d69ca2a83464b9a3991488f138de42bf59
+|\| Merge: c5a5f12 1e275e9
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Wed Aug 7 14:57:50 2024 +0300
+| | 
+| |     Merge remote-tracking branch 'ourRemote/main'
+| | 
+| * commit 1e275e9c42c4647e4de44fe8b6585f9bd210d8fc
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Wed Aug 7 14:04:47 2024 +0300
+| | 
+| |     shrinked files
+| | 
+| |  Events/Encounter.cpp | 33 -----------------------------
+| |  Events/Encounter.h   | 55 ------------------------------------------------
+| |  Events/RareEvent.cpp | 15 -------------
+| |  Events/RareEvent.h   | 23 --------------------
+| |  4 files changed, 126 deletions(-)
+| | 
+| * commit 53ad3c66e8353c808f9d1fd6d0826ca666c0dfb8
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Wed Aug 7 13:58:03 2024 +0300
+| | 
+| |     take move start implementation
+| | 
+| |  Events/Encounter.cpp | 33 +++++++++++++++++++++++++++++++++
+| |  Events/Encounter.h   | 12 +++++-------
+| |  Events/Event.h       |  1 +
+| |  Events/RareEvent.cpp | 15 +++++++++++++++
+| |  4 files changed, 54 insertions(+), 7 deletions(-)
+| | 
+* | commit c5a5f127d994804ee5e0521f2c05b84484bfb670
+|/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|   Date:   Wed Aug 7 14:53:52 2024 +0300
+|   
+|       add chracter class
+|   
+|    Players/Job.cpp     | 34 ++++++++++++---------
+|    Players/Job.h       | 37 ++++++++++++++++-------
+|    Players/Player.cpp  | 78 +++++++++++++++++++++++++++++++++++++++++++++++++
+|    Players/Player.h    | 43 ++++++++++++++++++---------
+|    Players/Players.cpp | 35 ----------------------
+|    5 files changed, 156 insertions(+), 71 deletions(-)
+|   
+*   commit da23e283f96610a6374416f573248206bf4c2cdf
+|\  Merge: 61400e7 060b2a2
+| | Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+| | Date:   Tue Aug 6 19:38:52 2024 +0300
+| | 
+| |     Merge remote-tracking branch 'ourRemote/main'
+| | 
+| * commit 060b2a2ddcca622c0d56c56c672c62b2bb682b82
+| | Author: mzangaria <mzangaria@campus.technion.ac.il>
+| | Date:   Tue Aug 6 19:35:39 2024 +0300
+| | 
+| |     initialized Events
+| | 
+| |  Events/Encounter.cpp |  0
+| |  Events/Encounter.h   | 57 ++++++++++++++++++++++++++++++++++++++++++++++++
+| |  Events/Event.cpp     |  2 ++
+| |  Events/Event.h       | 11 +++++++++-
+| |  Events/RareEvent.cpp |  0
+| |  Events/RareEvent.h   | 23 +++++++++++++++++++
+| |  6 files changed, 92 insertions(+), 1 deletion(-)
+| | 
+* | commit 61400e7563733e5fcb0cff4b38b8209ee52a57dc
+|/  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+|   Date:   Tue Aug 6 19:36:38 2024 +0300
+|   
+|       add job class
+|   
+|    Players/Job.cpp     | 57 +++++++++++++++++++++++++++++++++++++++++++++++++
+|    Players/Job.h       | 48 +++++++++++++++++++++++++++++++++++++++++
+|    Players/Player.h    | 37 ++++++++++++++++++++++++++++++--
+|    Players/Players.cpp | 35 ++++++++++++++++++++++++++++++
+|    4 files changed, 175 insertions(+), 2 deletions(-)
+| 
+* commit 5228186ff8c900f9c66d7ea8973898cb989b4391
+| Author: Adi Harif <adi.harif@campus.technion.ac.il>
+| Date:   Sun Aug 4 19:43:54 2024 +0300
+| 
+|     [bugfix] Changes utilities function to iterate over size_t variable instead of unsigned int
+| 
+|  Utilities.cpp | 6 +++---
+|  1 file changed, 3 insertions(+), 3 deletions(-)
+| 
+* commit 4f80cb91e6fb63c6a4a77c417ab1d9c84cbcc8b6
+| Author: Adi Harif <adi.harif@campus.technion.ac.il>
+| Date:   Sun Aug 4 08:16:59 2024 +0300
+| 
+|     [format] Changes tests eol format to LF instead of CRLF
+| 
+|  tests/test1.events  | 8 ++++----
+|  tests/test1.players | 4 ++--
+|  tests/test2.events  | 6 +++---
+|  tests/test2.players | 4 ++--
+|  tests/test3.events  | 8 ++++----
+|  tests/test3.players | 2 +-
+|  6 files changed, 16 insertions(+), 16 deletions(-)
+| 
+* commit 72a980855c0cf65e32241fc49407a87c595652cd
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Mon Jul 29 21:47:45 2024 +0300
+| 
+|     Adds supplied files
+| 
+|  Events/Event.h       |  14 +++++
+|  MatamStory.cpp       |  74 +++++++++++++++++++++++++
+|  MatamStory.h         |  55 +++++++++++++++++++
+|  Players/Player.h     |  51 +++++++++++++++++
+|  Utilities.cpp        | 117 +++++++++++++++++++++++++++++++++++++++
+|  Utilities.h          | 146 +++++++++++++++++++++++++++++++++++++++++++++++++
+|  main.cpp             |  40 ++++++++++++++
+|  tests/test1.events   |   5 ++
+|  tests/test1.expected |  96 ++++++++++++++++++++++++++++++++
+|  tests/test1.players  |   3 +
+|  tests/test2.events   |   4 ++
+|  tests/test2.expected |   1 +
+|  tests/test2.players  |   3 +
+|  tests/test3.events   |   5 ++
+|  tests/test3.expected |   1 +
+|  tests/test3.players  |   2 +
+|  16 files changed, 617 insertions(+)
+| 
+* commit dc8314c10abcf0e8b575502df26d0249008d45a7
+| Author: AdiHarif <adi.harif@campus.technion.ac.il>
+| Date:   Mon Jul 29 21:46:59 2024 +0300
+| 
+|     Initial Commit - Adds README.md file
+| 
+|  README.md | 10 +++++++++-
+|  1 file changed, 9 insertions(+), 1 deletion(-)
+| 
+* commit 89ceb845141908360cb3846f89de4c6413ba1474
+  Author: aimanawad57 <aiman.awad@campus.technion.ac.il>
+  Date:   Mon Aug 5 14:51:21 2024 +0300
+  
+      Initial commit
+  
+   README.md | 1 +
+   1 file changed, 1 insertion(+)
